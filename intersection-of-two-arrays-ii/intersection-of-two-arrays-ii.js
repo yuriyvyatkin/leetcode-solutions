@@ -9,17 +9,17 @@ var intersect = function(nums1, nums2) {
     let set;
     const result = [];
     
-    set = new Set(nums.long);
+    set = new Set(nums.short);
         
-    for (let i = 0; i < nums.short.length; i++) {
-        if (!set.has(nums.short[i])) {
+    for (let i = 0; i < nums.long.length; i++) {
+        if (!set.has(nums.long[i])) {
             continue;
         }
 
-        for (let j = 0; j < nums.long.length; j++) {
-            if (nums.short[i] === nums.long[j]) {
-                result.push(nums.short[i]);
-                nums.long[j] = null;
+        for (let j = 0; j < nums.short.length; j++) {
+            if (nums.long[i] === nums.short[j]) {
+                result.push(nums.long[i]);
+                nums.short[j] = null;
                 break;
             }
         }
