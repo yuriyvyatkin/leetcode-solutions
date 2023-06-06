@@ -18,10 +18,9 @@ var moveZeroes = function(nums) {
     
     const newNums = strNums
         .split(',')
-        .map((num) => Number(num))
         .concat(new Array(count).fill(0));
         
-    for (let i = 0; i < nums.length; i++) {
-        nums[i] = newNums[i];
-    }
+    nums.forEach((_, index) => {
+        nums[index] = Number(newNums[index]);
+    })
 };
