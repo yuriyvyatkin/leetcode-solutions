@@ -20,7 +20,7 @@ var moveZeroes = function(nums) {
         .split(',')
         .concat(new Array(count).fill(0));
         
-    nums.forEach((_, index) => {
-        nums[index] = Number(newNums[index]);
-    })
+    for (let i = 0; i < nums.length; i++) {
+        nums[i] = Number(newNums[i]);
+    }
 };
