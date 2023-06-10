@@ -8,8 +8,8 @@ var isAnagram = function(s, t) {
         return false;
     }
     
-    const sortedS = s.split('').sort((a, b) => a.localeCompare(b)).join('');
-    const sortedT = t.split('').sort((a, b) => a.localeCompare(b)).join('');
+    const sortedS = s.split('').sort().join('');
+    const sortedT = t.split('').sort().join('');
     
     return sortedS === sortedT;
 };
