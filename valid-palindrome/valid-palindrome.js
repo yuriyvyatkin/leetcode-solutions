@@ -8,13 +8,7 @@ var isPalindrome = function(s) {
     }
     
     const pureS = s.toLowerCase().split('').filter((letter) => {
-        const letterCode = letter.charCodeAt(0);
-        console.log(letterCode)
-        if ((letterCode < 97 || letterCode > 122) && (letterCode < 48 || letterCode > 57)) {
-            return false;
-        }
-        
-        return true;
+        return /[a-z0-9]/.test(letter);
     })
     
     if (pureS.length < 2) {
