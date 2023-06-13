@@ -11,14 +11,10 @@ var longestCommonPrefix = function(strs) {
         return '';
     }
     
-    let result = [];
+    let result = '';
     
     for (let i = 0; i <= strs.length - 2; i++) {
         let shortS, longS = '';
-        
-        // if (strs[i].length === 0 || strs[i + 1].length === 0) {
-        //     return '';
-        // }
         
         if (strs[i].length < strs[i + 1].length) {
             shortS = strs[i];
@@ -28,8 +24,8 @@ var longestCommonPrefix = function(strs) {
             longS = strs[i];
         }
         
-        shortS = shortS.split('');
-        longS = longS.split('');
+        // shortS = shortS.split('');
+        // longS = longS.split('');
         
         const comparisonSubstringLength = result.length || shortS.length;
         
@@ -42,7 +38,8 @@ var longestCommonPrefix = function(strs) {
                     break;
                 }
             } else if (shortS[j] === longS[j]) {
-                result.push(shortS[j]);
+                result += shortS[j];
+                // result.push(shortS[j]);
                 continue;
             } else {
                 result = result.slice(0, j);
@@ -54,5 +51,5 @@ var longestCommonPrefix = function(strs) {
         }    
     }
     
-    return result.filter(Boolean).join('');
+    return result;
 };
