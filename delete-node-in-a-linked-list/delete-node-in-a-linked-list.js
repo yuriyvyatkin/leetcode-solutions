@@ -14,5 +14,5 @@ var deleteNode = function(node) {
     node.val = nextNode.val;
     node.next = nextNode.next;
     nextNode.next = null;
-    
+    delete nextNode;
 };
