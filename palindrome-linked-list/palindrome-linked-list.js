@@ -22,15 +22,23 @@ var isPalindrome = function(head) {
         fast = fast.next.next;
     }
 
-    let revSecondHalf = new ListNode(slow.val);
+    // let revSecondHalf = new ListNode(slow.val);
     
-    while (slow.next) {
-        slow = slow.next;
-        revSecondHalf = new ListNode(slow.val, revSecondHalf);
+    // while (slow.next) {
+    //     slow = slow.next;
+    //     revSecondHalf = new ListNode(slow.val, revSecondHalf);
+    // }
+    
+    let revSecondHalf = null;
+    let curr = slow;
+    while (curr) {
+        let nextNode = curr.next;
+        curr.next = revSecondHalf;
+        revSecondHalf = curr;
+        curr = nextNode;
     }
     
-    while (revSecondHalf) {
-        console.log(revSecondHalf.val)
+    while (revSecondHalf && head) {
         if (revSecondHalf.val !== head.val) {
             return false;
         }
