@@ -22,13 +22,6 @@ var isPalindrome = function(head) {
         fast = fast.next.next;
     }
 
-    // let revSecondHalf = new ListNode(slow.val);
-    
-    // while (slow.next) {
-    //     slow = slow.next;
-    //     revSecondHalf = new ListNode(slow.val, revSecondHalf);
-    // }
-    
     let revSecondHalf = null;
     let curr = slow;
     while (curr) {
