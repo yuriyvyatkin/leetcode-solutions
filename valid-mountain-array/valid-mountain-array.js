@@ -18,12 +18,11 @@ var validMountainArray = function(arr) {
             return false;
         }
         
-        if (arr[i] < arr[i - 1] && arr[i - 2] < arr[i - 1] && track == 0) {
+        if (track == 0 && arr[i] < arr[i - 1] && arr[i - 2] < arr[i - 1]) {
             track = 1;
-
         }
         
-        if (arr[i] > arr[i - 1] && track == 1) {
+        if (track == 1 && arr[i] > arr[i - 1]) {
             return false;
         }
     }
