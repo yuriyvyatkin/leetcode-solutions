@@ -11,7 +11,7 @@ var moveZeroes = function(nums) {
             continue;
         }
         
-        if (nums[i] !== 0 && writePointer !== null) {
+        if (writePointer !== null && nums[i] !== 0) {
             nums[writePointer] = nums[i];
             nums[i] = 0;
             writePointer++;
