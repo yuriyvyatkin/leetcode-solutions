@@ -3,24 +3,18 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var moveZeroes = function(nums) {
-    const regex = /,0/g;
-    let count = 0;
-    let strNums = nums.join();
+    let writePointer = null;
     
-    strNums = strNums.replace(regex, () => {
-        count += 1;
-        return '';
-    });
-    if (strNums.startsWith('0,')) {
-        strNums = strNums.slice(2);
-        count += 1;
-    }
-    
-    const newNums = strNums
-        .split(',')
-        .concat(new Array(count).fill(0));
-        
     for (let i = 0; i < nums.length; i++) {
-        nums[i] = Number(newNums[i]);
+        if (writePointer === null && nums[i] === 0) {
+            writePointer = i;
+            continue;
+        }
+        
+        if (nums[i] !== 0 && writePointer !== null) {
+            nums[writePointer] = nums[i];
+            nums[i] = 0;
+            writePointer++;
+        }
     }
 };
