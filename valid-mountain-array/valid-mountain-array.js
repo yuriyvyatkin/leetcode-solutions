@@ -20,7 +20,7 @@ var validMountainArray = function(arr) {
         
         if (arr[i] < arr[i - 1] && arr[i - 2] < arr[i - 1] && track == 0) {
             track = 1;
-            continue;
+
         }
         
         if (arr[i] > arr[i - 1] && track == 1) {
