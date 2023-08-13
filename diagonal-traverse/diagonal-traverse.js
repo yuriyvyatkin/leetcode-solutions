@@ -5,14 +5,15 @@
 var findDiagonalOrder = function(mat) {
     let row = 0;
     let col = 0;
-    let lastRow = mat.length - 1;
-    let lastCol = mat[0].length - 1;
     let directionUp = true;
-    const result = [];
+    const lastRow = mat.length - 1;
+    const lastCol = mat[0].length - 1;
     const length = mat.length * mat[0].length;
+    const result = [];
     
     for (let i = 0; i < length; i++) {
         result.push(mat[row][col]);
+        
         if (directionUp) {
             if (col === lastCol) {
                 row++;
