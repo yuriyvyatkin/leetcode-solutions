@@ -3,7 +3,7 @@
  * @return {number[]}
  */
 var findDiagonalOrder = function(mat) {
-    if (mat.length === 0 || mat[0].length === 0) return [];
+    // if (mat.length === 0 || mat[0].length === 0) return [];
     
     let m = mat.length;
     let n = mat[0].length;
