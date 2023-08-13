@@ -3,18 +3,18 @@
  * @return {number[]}
  */
 var findDiagonalOrder = function(mat) {
-    // if (mat.length === 0 || mat[0].length === 0) return [];
-    
-    let m = mat.length;
-    let n = mat[0].length;
-    let result = [];
-    let row = 0, col = 0;
+    let row = 0;
+    let col = 0;
+    let lastRow = mat.length - 1;
+    let lastCol = mat[0].length - 1;
     let directionUp = true;
+    const result = [];
+    const length = mat.length * mat[0].length;
     
-    for (let i = 0; i < m * n; i++) {
+    for (let i = 0; i < length; i++) {
         result.push(mat[row][col]);
         if (directionUp) {
-            if (col === n - 1) {
+            if (col === lastCol) {
                 row++;
                 directionUp = false;
             } else if (row === 0) {
@@ -25,7 +25,7 @@ var findDiagonalOrder = function(mat) {
                 col++;
             }
         } else {
-            if (row === m - 1) {
+            if (row === lastRow) {
                 col++;
                 directionUp = true;
             } else if (col === 0) {
