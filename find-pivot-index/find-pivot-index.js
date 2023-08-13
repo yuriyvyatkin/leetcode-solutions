@@ -3,12 +3,8 @@
  * @return {number}
  */
 var pivotIndex = function(nums) {
-    let numsSum = 0;
-    
-    for (num of nums) {
-        numsSum += num;
-    }
-    
+    const numsSum = nums.reduce((a, b) => a + b);
+
     for (let i = 0, leftSum = 0; i < nums.length; i++) {
         if (leftSum === numsSum - leftSum - nums[i]) {
             return i;
