@@ -3,14 +3,23 @@
  * @return {number}
  */
 var dominantIndex = function(nums) {
-    const largestNum = Math.max(...nums);
-    const largestNumIndex = nums.indexOf(largestNum);
-    
+    let largestNum = -1;
+    let secondLargestNum = -1;
+    let largestNumIndex = -1;
+
     for (let i = 0; i < nums.length; ++i) {
-        if (i !== largestNumIndex && nums[i] * 2 > largestNum) {
-            return -1;
+        if (nums[i] > largestNum) {
+            secondLargestNum = largestNum;
+            largestNum = nums[i];
+            largestNumIndex = i;
+        } else if (nums[i] > secondLargestNum) {
+            secondLargestNum = nums[i];
         }
     }
     
-    return largestNumIndex;
+    if (secondLargestNum * 2 <= largestNum) {
+        return largestNumIndex;
+    }
+
+    return -1;
 };
