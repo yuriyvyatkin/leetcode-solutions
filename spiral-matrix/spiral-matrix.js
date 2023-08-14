@@ -3,39 +3,40 @@
  * @return {number[]}
  */
 var spiralOrder = function(matrix) {
-
-    let result = [];
-    let rowStart = 0, rowEnd = matrix.length - 1;
-    let colStart = 0, colEnd = matrix[0].length - 1;
+    let row = 0;
+    let col = 0;
+    let lastRow = matrix.length - 1;
+    let lastCol = matrix[0].length - 1;
+    const result = [];
     
-    while (rowStart <= rowEnd && colStart <= colEnd) {
-        // Перемещение вправо
-        for (let col = colStart; col <= colEnd; col++) {
-            result.push(matrix[rowStart][col]);
+    while (row <= lastRow && col <= lastCol) {
+        // вправо
+        for (let i = col; i <= lastCol; i++) {
+            result.push(matrix[row][i]);
         }
-        rowStart++;
-
-        // Перемещение вниз
-        for (let row = rowStart; row <= rowEnd; row++) {
-            result.push(matrix[row][colEnd]);
+        row++;
+        
+        // вниз
+        for (let i = row; i <= lastRow; i++) {
+            result.push(matrix[i][lastCol]);
         }
-        colEnd--;
-
-        // Перемещение влево
-        if (rowStart <= rowEnd) {
-            for (let col = colEnd; col >= colStart; col--) {
-                result.push(matrix[rowEnd][col]);
+        lastCol--;
+        
+        // влево
+        if (row <= lastRow) {
+            for (let i = lastCol; i >= col; i--) {
+                result.push(matrix[lastRow][i]);
             }
         }
-        rowEnd--;
-
-        // Перемещение вверх
-        if (colStart <= colEnd) {
-            for (let row = rowEnd; row >= rowStart; row--) {
-                result.push(matrix[row][colStart]);
+        lastRow--;
+        
+        // вверх
+        if (col <= lastCol) {
+            for (let i = lastRow; i >= row; i--) {
+                result.push(matrix[i][col]);
             }
         }
-        colStart++;
+        col++;
     }
     
     return result;
