@@ -4,8 +4,6 @@
  * @return {number}
  */
 var strStr = function(haystack, needle) {
-    if (needle.length === 0) return 0;
-    
     for (let i = 0; i <= haystack.length - needle.length; i++) {
         let match = true;
         for (let j = 0; j < needle.length; j++) {
